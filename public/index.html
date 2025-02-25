@@ -37,7 +37,7 @@
 
             <div class="top-logo">
                 <a href="/" title="Home">
-                    <img src="/assets/images/site-logo.png" alt="Website Logo" />
+                    <img src="/assets/images/site-logo.png" alt="Dreamla website logo" />
                 </a>
             </div>
         </div>  
@@ -48,7 +48,7 @@
             <article>
                 <div class="image-part">
                     <a href="" title="Top Places You Should Visit Right Now">
-                        <img width="960" height="750" src="/assets/images/top-places-you-should-visit-right-now.jpg" alt="Scenic view of a top travel destinations" />  
+                        <img width="960" height="750" src="/assets/images/top-places-you-should-visit-right-now.jpg" alt="Scenic view of a top travel destinations with the sea in the background, white constructions in foreground, with two wood chairs and some plants" />  
                     </a>
                 </div>
 
@@ -62,15 +62,16 @@
                     <div class="post-list-entry">
                         <p>Contact us to learn more!</p>
                         <form action="/" method="post">
-                            <label for="fullname">Name</label>
+                            <label for="fullname">Name <span class="required">*</span></label>
                             <input type="text" id="fullname" name="fullname" required />
                             
-                            <label for="email">Email</label>
+                            <label for="email">Email <span class="required">*</span></label>
                             <input type="email" id="email" name="email" required />
 
                             <div class="flexbox">
                                 <span></span>
-                                <label class="check">Check Me (required)</label>
+                                <input type="checkbox" id="checkme" name="checkme" aria-required="true" required />
+                                <label for="checkme" class="check">Check Me (required)</label>
                             </div>
 
                             <input type="submit" value="Submit" />

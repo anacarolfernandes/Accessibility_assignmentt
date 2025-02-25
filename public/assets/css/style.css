@@ -56,7 +56,7 @@ h6 {
 }
 
 label {
-    display: block;
+    display: inline-block;
     width: 100%;
     margin-bottom: 5px;
 }
@@ -69,17 +69,59 @@ input[type=text], input[type=email] {
 }
 form .flexbox {
     display: flex;
-    align-items: center;
+    align-items: center; /* Ensures vertical alignment */
+    margin-bottom: 15px; /* Ensuring space between the fields */
 }
-form span {
-    display: block;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    margin-bottom: 15px;
+
+/* Fix for checkbox container and appearance */
+form .flexbox span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    background-color: white;
     margin-right: 10px;
     position: relative;
+    cursor: pointer;
 }
+
+/* Checkbox checked state */
+form .flexbox span.checked {
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+
+/* Checkbox tick */
+form .flexbox span.checked:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+fform .flexbox span.checked:after {
+    display: block;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+
+
+/* Hide the default checkbox input */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Apply the styles to the span when checkbox is checked */
+input[type="checkbox"]:checked + .flexbox span {
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+
 /* hover */
 form .flexbox:hover span {
     background-color: #ccc;
@@ -107,10 +149,23 @@ form .flexbox span.checked:after {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+/* Ensure the required asterisk appears next to label */
+label span.required {
+    color: red;
+    margin-left: 5px;
+    font-weight: bold;
+    display: inline; /* Ensures it stays inline */
+    background: none;
+    padding: 0;
+    border: none;
+}
+
 label.check {
     display: block;
     width: auto;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
+   
 }
 input[type=submit] {
     font-family: Quando;
@@ -129,12 +184,10 @@ input[type=submit]:hover {
     background-color: #84B2FF;
 }
 
-
 .container {
     width: 94%;
     margin: 0 auto;
 }
-
 
 /* header and main nav */
 header {
@@ -148,8 +201,6 @@ header nav ul {
     width: 200px;
     margin: 20px auto 40px;
 }
-
-
 
 /* posts */
 article {
@@ -177,8 +228,6 @@ article {
 .post-title a:hover {
     color: #35c4ce;
 }
-
-
 
 /* footer */
 footer {
@@ -217,7 +266,6 @@ footer {
     font-size: 12px;
     color: #989898;
 }
-
 
 @media only screen and (min-width: 650px) {
     .container {
@@ -295,8 +343,6 @@ footer {
         color: #000; 
     }
 
-
-
     /* posts */
     article {
         display: flex;
@@ -316,8 +362,6 @@ footer {
         flex: 1;
         padding-left: 50px;
     }
-
-
 
     /* footer */
     .footer-social-links a {
